@@ -1,0 +1,20 @@
+[package]
+name = "grpc-health-check"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.51", features = ["derive", "env"] }
+prost = "0.14.1"
+tokio = { version = "1", features = ["macros"] }
+tonic = "0.14.2"
+tonic-prost = "0.14.2"
+
+[build-dependencies]
+anyhow = "1.0.100"
+tonic-prost-build = "0.14.2"
+
+[lints.clippy]
+pedantic = "warn"
+nursery = "warn"
