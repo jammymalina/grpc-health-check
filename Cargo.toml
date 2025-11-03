@@ -1,6 +1,6 @@
 [package]
 name = "grpc-health-check"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2024"
 
 authors = ["Jakub Jantosik <jakub.jantosik@gmail.com>"]
