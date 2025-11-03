@@ -24,13 +24,13 @@ async fn main() -> anyhow::Result<()> {
     let mut client = HealthClient::connect(format!("{}:{}", args.host, args.port)).await?;
 
     let health_request = HealthCheckRequest {
-        service: "".to_string(),
+        service: String::new(),
     };
     let response = client.check(health_request).await?;
     let status = response.get_ref().status;
 
     match status {
         SERVING_STATUS_INT => Ok(()),
-        _ => Err(anyhow::anyhow!("Unhealthy serving status: {}", status)),
+        _ => Err(anyhow::anyhow!("Unhealthy serving status: {status}")),
     }
 }

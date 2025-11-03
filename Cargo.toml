@@ -8,7 +8,8 @@ description = "A health-check utility for grpc services."
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/jammymalina/grpc-health-check"
-keywords = ["grpc", "cli", "utility"]
+keywords = ["grpc", "health", "monitoring", "cli", "utility"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 anyhow = "1.0.100"
