@@ -1,7 +1,15 @@
 [package]
 name = "grpc-health-check"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2024"
+
+authors = ["Jakub Jantosik <jakub.jantosik@gmail.com>"]
+description = "A health-check utility for grpc services."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/jammymalina/grpc-health-check"
+keywords = ["grpc", "cli", "utility"]
+categories = ["monitoring-utilities", "health-utilities"]
 
 [dependencies]
 anyhow = "1.0.100"
