@@ -38,7 +38,7 @@ service Health {
 
 ## Using with Docker
 
-`Dockerfile` to building a small, multi-stage container image:
+`Dockerfile` to build a small, multi-stage container image:
 
 ```Dockerfile
 # --- Builder Stage ---
