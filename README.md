@@ -8,8 +8,8 @@ It connects to a gRPC server, performs a health check, and exits with a status c
 
 The application connects to a specified gRPC server and sends a `HealthCheckRequest`. It then checks the `ServingStatus` in the response.
 
-*   If the status is `SERVING`, the application exits with a success code (`0`).
-*   For any other status, it prints an error message and exits with a failure code (`1`), signaling to the container orchestrator that the service is unhealthy.
+- If the status is `SERVING`, the application exits with a success code (`0`).
+- For any other status, it prints an error message and exits with a failure code (`1`), signaling to the container orchestrator that the service is unhealthy.
 
 It is using the standard health check protobuf spec:
 
@@ -42,14 +42,14 @@ service Health {
 
 ```Dockerfile
 # --- Builder Stage ---
-FROM rust:1.91.0-slim-bookworm AS builder
+FROM rust:1-slim-trixie AS builder
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y protobuf-compiler
 RUN cargo install grpc-health-check --root /usr/local/
 
 
 # --- Main Stage ---
-FROM gcr.io/distroless/cc-debian12
+FROM gcr.io/distroless/cc-debian13
 # Copy the health check binary from the builder stage
 COPY --from=builder /usr/local/bin/grpc-health-check /usr/local/bin/grpc-health-check
 ```
@@ -60,12 +60,13 @@ You can configure the gRPC server's host and port using the following methods:
 
 **1. Command-Line Arguments:**
 
-| Argument | Short | Environment Variable | Description |
-|---|---|---|---|
-| `--host` | `-h` | `GRPC_HEALTH_CHECK_HOST` | The hostname or IP address of the gRPC server. |
-| `--port` | `-p` | `GRPC_HEALTH_CHECK_PORT` | The port number of the gRPC server. |
+| Argument | Short | Environment Variable     | Description                                    |
+| -------- | ----- | ------------------------ | ---------------------------------------------- |
+| `--host` | `-h`  | `GRPC_HEALTH_CHECK_HOST` | The hostname or IP address of the gRPC server. |
+| `--port` | `-p`  | `GRPC_HEALTH_CHECK_PORT` | The port number of the gRPC server.            |
 
 **Example:**
+
 ```bash
 ./grpc-health-check --host http://localhost --port 50051
 ```
