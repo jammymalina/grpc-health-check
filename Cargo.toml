@@ -1,6 +1,6 @@
 [package]
 name = "grpc-health-check"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2024"
 
 authors = ["Jakub Jantosik <jakub.jantosik@gmail.com>"]
@@ -12,16 +12,16 @@ keywords = ["grpc", "health", "monitoring", "cli", "utility"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-anyhow = "1.0.100"
-clap = { version = "4.5.58", features = ["std", "derive", "env"], default-features = false }
+anyhow = "1.0.102"
+clap = { version = "4.6.1", features = ["std", "derive", "env"], default-features = false }
 prost = "0.14.3"
-tokio = { version = "1.49.0", features = ["macros"], default-features = false }
-tonic = "0.14.3"
-tonic-prost = "0.14.3"
+tokio = { version = "1.52.3", features = ["macros"], default-features = false }
+tonic = "0.14.6"
+tonic-prost = "0.14.6"
 
 [build-dependencies]
-anyhow = "1.0.101"
-tonic-prost-build = "0.14.3"
+anyhow = "1.0.102"
+tonic-prost-build = "0.14.6"
 
 [lints.clippy]
 pedantic = "warn"
